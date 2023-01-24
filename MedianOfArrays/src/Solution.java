@@ -1,18 +1,13 @@
 public class Solution {
     public static void main(String[] args) {
-        int[] a = new int[0];
-        int[] b = new int[5];
+        int[] a = new int[2];
+        int[] b = new int[2];
 
-//        a[0] = 1;
-//        a[1] = 3;
-//        a[2] = 10;
-//        a[3] = 11;
+        a[0] = 1;
+        a[1] = 2; //3
 
-        b[0] = 5;
-        b[1] = 6;
-        b[2] = 7;
-        b[3] = 8;
-        b[4] = 20;
+        b[0] = 3; //2
+        b[1] = 4; //7
 
         double c = findMedianSortedArrays(a, b);
         System.out.println(c);
