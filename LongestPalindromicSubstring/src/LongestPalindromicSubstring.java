@@ -26,8 +26,7 @@ public class LongestPalindromicSubstring {
             if (iter % 1 == 0.5) {
                 answer = evenIndex(s, iter, 0.5);
                 tmp = answer.length() * 2;
-            }
-            else {
+            } else {
                 answer = evenIndex(s, iter, 1);
                 tmp = answer.length() * 2 - 1;
             }
@@ -38,8 +37,7 @@ public class LongestPalindromicSubstring {
                     reverse.reverse();
                     reverse.deleteCharAt(reverse.length() - 1);
                     buff = reverse.toString() + answer;
-                }
-                else {
+                } else {
                     StringBuilder reverse = new StringBuilder(answer);
                     reverse.reverse();
                     buff = reverse.toString() + answer;
@@ -51,18 +49,18 @@ public class LongestPalindromicSubstring {
     }
 
     public static String evenIndex(String source, double iter, double delta) {
-        String buff = delta == 1 ? String.valueOf(source.charAt((int)iter)) : "";
-        int left = (int)(iter - delta);
-        int right = (int)(iter + delta);
+        String buff = delta == 1 ? String.valueOf(source.charAt((int) iter)) : "";
+        int left = (int) (iter - delta);
+        int right = (int) (iter + delta);
 
         while (left >= 0 & right < source.length()) {
             if (source.charAt(left) == source.charAt(right)) {
                 buff = buff + source.charAt(right);
                 left--;
                 right++;
-            }
-            else
+            } else
                 return buff;
         }
         return buff;
     }
+}
