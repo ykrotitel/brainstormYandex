@@ -10,81 +10,59 @@ public class LongestPalindromicSubstring {
 
     public static void main(String[] args) {
         String s = "abcabccbacbaa";
-        System.out.println(findPalindromic(s));
+//        String s = "dccb";
+        System.out.println(findPalindromic1(s));
     }
 
-
-    public static String findPalindromic(String source) {
-        String answer = null;
-        int sizePalindromic = 0;
+    public static String findPalindromic1(String s) {
+        String answer = "";
+        String buff = "";
+        int size = 0;
         int tmp = 0;
+        double iter = 0;
+        int to = s.length() - 1;
 
-        List<Integer> helper = Arrays.asList(new Integer[source.length()]);
-        int i = 0;
-        while (i < helper.size()) { //запонили вспомогательный лист нулями, чтобы в случае ложной проверки на палиндром отметить этот индекс в массиве
-            helper.set(i, 0);       //и не попасться туда еще раз, а пройти его мимо
-            i++;
-        }
-
-        int from = 0;
-        int to = (source.length() % 2 == 0 ? (source.length() / 2) + 1 : (source.length() / 2) + 2);
-
-        while (from < to) {
-            tmp = checkPalindromic(source, helper, from, to).length();
-            if (tmp > sizePalindromic)
-                sizePalindromic = tmp;
-            tmp = 0;
-            from++;
-        }
-
-        return answer;
-    }
-
-    public static String checkPalindromic(String source,List<Integer> helper, int lIndex, int rIndex) {
-        int flag = 0;
-        String buff = "" + source.charAt(lIndex);
-        int tmp = lIndex;
-
-        while(tmp != rIndex) {
-            while(tmp != rIndex) {
-                if (buff.charAt(tmp) != source.charAt(tmp + 1) && (helper.get(tmp + 1) == 0)) { // проверили следующий элемент в source
-                    buff = buff + source.charAt(tmp + 1);                                       //если он не равен текущему в буфере и на этом месте мы еще не были
-                }                                                                               //по хэлперу - записываем в палиндром и пока проверять вторую половину рано
-                tmp++;
+        while (iter <= to) {
+            if (iter % 1 == 0.5) {
+                answer = evenIndex(s, iter, 0.5);
+                tmp = answer.length() * 2;
             }
-            rmp = lIndex;
-        }
-
-        while (lIndex < rIndex) { //нужно добавить вложенность, чтобы проверить наличие первой половины палиндрома от начаала и до rIndex
-            if (source.charAt(lIndex + 1) == buff.charAt(lIndex)) {
-                //Возможно, нашли середину палиндрома
-                if (checkSecondPiecePalindromic(source, buff, lIndex + 1, helper)) {
-                    return buff;
+            else {
+                answer = evenIndex(s, iter, 1);
+                tmp = answer.length() * 2 - 1;
+            }
+            if (size < tmp) {
+                size = tmp;
+                if (size % 2 == 1) {
+                    StringBuilder reverse = new StringBuilder(answer);
+                    reverse.reverse();
+                    reverse.deleteCharAt(reverse.length() - 1);
+                    buff = reverse.toString() + answer;
+                }
+                else {
+                    StringBuilder reverse = new StringBuilder(answer);
+                    reverse.reverse();
+                    buff = reverse.toString() + answer;
                 }
             }
-            lIndex++;
+            iter += 0.5;
         }
         return buff;
     }
 
-    public static boolean checkSecondPiecePalindromic(String source, String buff, int index, List<Integer> helper) {
-        int i = buff.length();
-        int flag = index;
+    public static String evenIndex(String source, double iter, double delta) {
+        String buff = delta == 1 ? String.valueOf(source.charAt((int)iter)) : "";
+        int left = (int)(iter - delta);
+        int right = (int)(iter + delta);
 
-        while (i >= 0) {
-            if (buff.charAt(i) == source.charAt(index) && (i == buff.length() && helper.get(flag) == 0)) { //второе условие на проверку вспомогательного массива
-                                                                                                            // это условие нужно проверять в предыдущем методе
-                i--;
-                index++;
+        while (left >= 0 & right < source.length()) {
+            if (source.charAt(left) == source.charAt(right)) {
+                buff = buff + source.charAt(right);
+                left--;
+                right++;
             }
-            else if (i == 0) {
-                helper.set(flag, 1);
-                return false;
-            }
+            else
+                return buff;
         }
-        return true;
+        return buff;
     }
-}
-
-
-//      abcbcba
