@@ -8,10 +8,12 @@
       <module fileurl="file://$PROJECT_DIR$/MedianOfArrays/MedianOfArrays.iml" filepath="$PROJECT_DIR$/MedianOfArrays/MedianOfArrays.iml" />
       <module fileurl="file://$PROJECT_DIR$/PalindromicInteger/PalindromicInteger.iml" filepath="$PROJECT_DIR$/PalindromicInteger/PalindromicInteger.iml" />
       <module fileurl="file://$PROJECT_DIR$/QuickSort/QuickSort.iml" filepath="$PROJECT_DIR$/QuickSort/QuickSort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RemoveDublicates/RemoveDublicates.iml" filepath="$PROJECT_DIR$/RemoveDublicates/RemoveDublicates.iml" />
       <module fileurl="file://$PROJECT_DIR$/ReverseInteger/ReverseInteger.iml" filepath="$PROJECT_DIR$/ReverseInteger/ReverseInteger.iml" />
       <module fileurl="file://$PROJECT_DIR$/StonesAndJewels/StonesAndJewels.iml" filepath="$PROJECT_DIR$/StonesAndJewels/StonesAndJewels.iml" />
       <module fileurl="file://$PROJECT_DIR$/TwoSum/TwoSum.iml" filepath="$PROJECT_DIR$/TwoSum/TwoSum.iml" />
       <module fileurl="file://$PROJECT_DIR$/VectorBooleanTrue/VectorBooleanTrue.iml" filepath="$PROJECT_DIR$/VectorBooleanTrue/VectorBooleanTrue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WaterContainer/WaterContainer.iml" filepath="$PROJECT_DIR$/WaterContainer/WaterContainer.iml" />
       <module fileurl="file://$PROJECT_DIR$/ZigZagConversion/ZigZagConversion.iml" filepath="$PROJECT_DIR$/ZigZagConversion/ZigZagConversion.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/brainstormYandex.iml" filepath="$PROJECT_DIR$/.idea/brainstormYandex.iml" />
     </modules>
